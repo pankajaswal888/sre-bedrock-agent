@@ -24,3 +24,13 @@ Invoke orchestrator lambda:
 
 Expected:
 Scaling Lambda invoked.
+
+aws lambda invoke \
+  --function-name sre-orchestrator-lambda \
+  --payload '{
+    "restarts": 8,
+    "memory_ratio": 0.92,
+    "deployment": "abc-service",
+    "namespace": "xyz"
+  }' \
+  response.json
